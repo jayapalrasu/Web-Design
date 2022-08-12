@@ -41,7 +41,7 @@
                     <input type="name" name="name" placeholder="Name">
                     <input type="email" name="email" placeholder="Email">
                     <input type="password" name="" placeholder="Password">
-                    <input type="password" name="" placeholder="Confirm Password">
+                    <input type="confirmnpassword" name="" placeholder="Confirm Password">
                     <button class="btnn"><a href="#">submit</a></button>
                     <p class="link">Already have an account<br>
                         <a href="#" onclick="myFunction(1)">login </a> here</a>
@@ -50,9 +50,9 @@
                 <div id="myDIV">
                     <h2>Login Here</h2>
                     <br><br>
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="password" name="" placeholder="Password">
-                    <button class="btnn"><a href="#">Login</a></button>
+                    <input type="email" name="lemail" id="lemail" placeholder="Email">
+                    <input type="password" name="lpassword" id="lpassword" placeholder="Password">
+                    <button class="btnn"><a href="#" onclick="loginFunction()">Login</a></button>
                     <p class="link">Don't have an account<br>
                         <a href="#" onclick="myFunction(2)">signup </a> here</a>
                     </p>
@@ -80,6 +80,17 @@
     </div>
     </div>
     </div>
+    <center>
+        <table border="4" id="show">
+            <thead>
+             <tr>
+                 <th>Email</th>
+                 <th>Password</th>
+             </tr>
+            </thead>
+         </table>
+    </center>
+    
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script>
         function myFunction(n) {
@@ -94,6 +105,26 @@
                 y.style.display = "none";
             }
         }
+        var list1 = [];
+        var list2 = [];
+        var n=1;
+        var x=0;
+        function loginFunction(){
+            var loginFunction = document.getElementById('show');
+            var NewRow = loginFunction.insertRow(n);
+
+            list1[x]= document.getElementById("lemail").value;
+            list2[x]= document.getElementById("lpassword").value;
+
+            var cell1 = NewRow.insertCell(0);
+            var cell2 = NewRow.insertCell(1);
+
+            cell1.innerHTML = list1[x];
+            cell2.innerHTML = list2[x];
+            n++;
+            x++;
+        }   
+        
     </script>
 </body>
 
